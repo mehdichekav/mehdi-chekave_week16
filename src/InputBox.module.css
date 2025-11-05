@@ -1,0 +1,156 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.container input {
+  width: 260px;
+  height: 36px;
+  border-radius: 10px;
+  color: black;
+  border: 2px solid #ccc;
+  padding: 6px 12px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+
+.container input:focus {
+  outline: none;
+  border-color: #3874ff;
+  box-shadow: 0 0 5px rgba(56, 116, 255, 0.5);
+}
+
+
+.container input:hover {
+  border: 2px solid #383838;
+}
+
+
+.list {
+  position: absolute;
+  top: 100%; 
+  width: 260px;
+  max-height: 200px;
+  margin-top: 8px;
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  z-index: 10;
+}
+
+
+.list li {
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #222;
+}
+
+
+.list li:hover {
+  background: rgba(56, 116, 255, 0.1);
+  color: #3874ff;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+.list::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+
+.inputWrapper {
+  position: relative;
+  width: 300px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+.inputWrapper input {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #333;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+
+.inputWrapper input:focus {
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 10px rgba(56, 116, 255, 0.4);
+}
+
+
+.suggestion {
+  position: absolute;
+  top: 31px;
+  left: 30px;
+  font-size: 15px;
+  color: #777;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+
+h1 {
+  font-size: 2em;
+  font-weight: 600;
+  box-shadow: 10px 0 0 #f00;
+  background: linear-gradient(90deg, #3874ff, #00c4ff);
+  --webkit-background-clip: text;
+  --webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+  margin: 100px auto;
+  overflow-x: hidden;
+  animation: anim 5s steps(10) infinite;
+}
+
+
+@keyframes anim {
+  0%,90%,100% {
+    width: 0;
+  }
+  30%,60% {
+    width: 200px;
+  }
+}
