@@ -8,6 +8,8 @@ function InputBox() {
   const [suggestion, setSuggestion] = useState("");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const [activeIndex, setActiveIndex] = useState(-1);
+
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -32,6 +34,18 @@ function InputBox() {
       setSuccess("");
     }
   };
+
+
+  const handleKeyDown = (e) => {
+  if (e.key === "ArrowDown") {
+    setActiveIndex((prev) => Math.min(prev + 1, filteredCities.length - 1));
+  } else if (e.key === "ArrowUp") {
+    setActiveIndex((prev) => Math.max(prev - 1, 0));
+  } else if (e.key === "Enter" && activeIndex >= 0) {
+    handleSelect(filteredCities[activeIndex]);
+  }
+};
+
 
   const handleSelect = (name) => {
     setCity(name);
@@ -64,6 +78,7 @@ function InputBox() {
           type="search"
           value={city}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           placeholder="Type city name..."
         />
         {suggestion && <span className={styles.suggestion}>{suggestion}</span>}
@@ -72,8 +87,9 @@ function InputBox() {
     
       {city && filteredCities.length > 0 && (
         <ul className={styles.list}>
-          {filteredCities.map((name) => (
-            <li key={name} onClick={() => handleSelect(name)}>
+          {filteredCities.map((name, index) => (
+            <li key={name} className={index === activeIndex ? styles.activeItem : ""} onClick={() => handleSelect(name)} >
+                
               <span style={{ fontWeight: "bold", color: "#3874ff" }}>
                 {name.slice(0, city.length)}
               </span>
@@ -84,7 +100,7 @@ function InputBox() {
       )}
 
    
-      {!success && city && filteredCities.length === 0 && (
+      {!success && city && filteredCities.length === 0 && !suggestion  && (
         <div className={styles.toast}>No city found 😕</div>
       )}
 

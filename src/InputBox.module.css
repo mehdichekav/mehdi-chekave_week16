@@ -240,6 +240,13 @@ h1 {
   animation: anim 5s steps(10) infinite;
 }
 
+.activeItem {
+  background-color: rgba(56, 116, 255, 0.15);
+  color: #3874ff;
+  font-weight: 600;
+}
+
+
 @keyframes anim {
   0%,90%,100% {
     width: 0;
