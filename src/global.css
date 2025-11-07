@@ -14,7 +14,6 @@ html, body {
   animation: gradientMove 12s ease infinite;
 }
 
-
 @keyframes gradientMove {
   0% {
     background-position: 0% 50%;
@@ -27,7 +26,6 @@ html, body {
   }
 }
 
-
 .input {
   position: relative;
   width: 250px;
@@ -37,12 +35,10 @@ html, body {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-
 input:focus {
   border-color: #7fbde0;
   box-shadow: 0 0 6px rgba(127, 189, 224, 0.5);
 }
-
 
 .input input {
   width: 100%;
@@ -53,7 +49,6 @@ input:focus {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif3;
 }
-
 
 .input label {
   position: absolute;

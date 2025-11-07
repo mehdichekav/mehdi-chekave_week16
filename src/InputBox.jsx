@@ -14,15 +14,23 @@ function InputBox() {
     setCity(value);
 
     const filtered = cities.filter((c) => c.startsWith(value));
+    setFilteredCities(filtered);
 
     if (value && filtered.length > 0) {
-      const first = filtered[0];
-      setSuggestion(first);
+      setSuggestion(filtered[0]);
     } else {
       setSuggestion("");
     }
 
-    setFilteredCities(filtered);
+  
+    const exactMatch = cities.find((c) => c === value);
+    if (exactMatch) {
+      setSuccess(`✅ You selected: ${exactMatch}`);
+      setFilteredCities([]);
+      setTimeout(() => setSuccess(""), 3000);
+    } else {
+      setSuccess("");
+    }
   };
 
   const handleSelect = (name) => {
@@ -50,6 +58,7 @@ function InputBox() {
   return (
     <div className={styles.container}>
       <h1>Developer Mehdi Chekav</h1>
+
       <div className={styles.inputWrapper}>
         <input
           type="search"
@@ -60,6 +69,7 @@ function InputBox() {
         {suggestion && <span className={styles.suggestion}>{suggestion}</span>}
       </div>
 
+    
       {city && filteredCities.length > 0 && (
         <ul className={styles.list}>
           {filteredCities.map((name) => (
@@ -73,13 +83,14 @@ function InputBox() {
         </ul>
       )}
 
-      {city && filteredCities.length === 0 && (
+   
+      {!success && city && filteredCities.length === 0 && (
         <div className={styles.toast}>No city found 😕</div>
       )}
+
       {error && <div className={styles.errorToast}>{error}</div>}
 
       {success && <div className={styles.successToast}>{success}</div>}
-
     </div>
   );
 }

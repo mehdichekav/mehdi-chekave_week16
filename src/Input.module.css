@@ -1,0 +1,50 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 90%;
+  gap: 8px;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+
+.input label {
+  font-size: 14px;
+  color: #cfd7ff;
+  letter-spacing: 0.5px;
+  margin-left: 4px;
+}
+
+.input input {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  font-size: 15px;
+  color: #222;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.input input::placeholder {
+  color: #999;
+  opacity: 0.7;
+}
+
+.input input:hover {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 6px rgba(56, 116, 255, 0.3);
+}
+
+.input input:focus {
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #3874ff;
+  box-shadow: 0 0 10px rgba(56, 116, 255, 0.4);
+  color: #000;
+  transition: all 0.2s ease;
+}
