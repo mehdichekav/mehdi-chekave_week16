@@ -8,7 +8,8 @@ html, body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg,  #7b8cff, #a3d8ff, #dff1ff);
+  background: linear-gradient(135deg, #0d0d0e 0%, #436472 100%);
+  color: #e6eef2;
   background-size: 400% 400%;
   animation: gradientMove 12s ease infinite;
 }
@@ -31,6 +32,15 @@ html, body {
   position: relative;
   width: 250px;
   margin: 20px auto;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f9f9f9;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+input:focus {
+  border-color: #7fbde0;
+  box-shadow: 0 0 6px rgba(127, 189, 224, 0.5);
 }
 
 
